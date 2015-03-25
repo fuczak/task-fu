@@ -1,4 +1,4 @@
-<nav class="navbar navbar-info">
+<nav class="navbar navbar-info" ng-controller="NavController">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -11,14 +11,17 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left">
-				<li><a href="#/post">Post a Task</a></li>
+				<li ng-show="signedIn()"><a href="#/post">Post a Task</a></li>
 				<li><a href="#/browse">Browse Tasks</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#/login">Login</a></li>
-				<li><a href="#/register">Register</a></li>
-				<li class="dropdown">
+				<li ng-hide="signedIn()"><a href="#/login">Login</a></li>
+				<li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+				<li ng-show="signedIn()"class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown">
+						<img ng-src="{{currentUser.profile.gravatar}}" class="img-circle gravatar" alt="">
+						&nbsp;
+						{{currentUser.profile.name}}
 						<span class="mdi-navigation-expand-more"></span>
 					</a>
 					<ul class="dropdown-menu">
@@ -29,5 +32,5 @@
 			</ul>
 		</div>
 	</div>
-	<div ng-include="'views/partials/changepass.html'"></div>
+	<div ng-show="signedIn()" ng-include="'views/partials/changepass.html'"></div>
 </nav>
