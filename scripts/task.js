@@ -25,4 +25,4 @@ app.controller('TaskController', function($scope, FURL, $firebase, $location, $r
 		fbTasks.$add(task);
 		$location.path('/browse')
 	};
-});
+});g
