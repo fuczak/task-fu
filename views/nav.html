@@ -11,7 +11,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left">
-				<li ng-show="signedIn()"><a href="#/post">Post a Task</a></li>
+				<li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#posModal">Post a Task</a></li>
 				<li><a href="#/browse">Browse Tasks</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -33,4 +33,5 @@
 		</div>
 	</div>
 	<div ng-show="signedIn()" ng-include="'views/partials/changepass.html'"></div>
+	<div ng-show="signedIn()" ng-include="'views/partials/post.html'"></div>
 </nav>
