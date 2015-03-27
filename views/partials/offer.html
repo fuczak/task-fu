@@ -10,8 +10,8 @@
 				</div>
 				<div class="panel-body">
 					<form ng-submit="makeOffer()">
-						<input type="number" ng-model="total" class="form-control" placeholder="How much will you offer for this task? eg: 25" required>
-						<input type="submit" value="Offer now" class="btn btn-info">
+						<input type="number" ng-model="$parent.total" class="form-control" placeholder="How much will you offer for this task? eg: 25" required ng-disabled="$parent.block">
+						<input type="submit" value="Offer now" class="btn btn-info" ng-disabled="$parent.block">
 					</form>
 				</div>
 			</div>

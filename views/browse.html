@@ -62,7 +62,7 @@
 									</ul>
 								</div>
 							</div>
-							<div ng-show="isOpen(selectedTask) && !isTaskCreator(selectedTask)">
+							<div ng-show="isOpen(selectedTask) && !isTaskCreator(selectedTask) && !alreadyOffered">
 								<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#offModal">Make an Offer</button>
 							</div>
 						</div>
@@ -95,6 +95,7 @@
 								</div>
 								<div class="row" ng-repeat="offer in offers">
 									<div class="col-md-10">
+										<button ng-show="isOfferMaker(offer) && isOpen(selectedTask)" class="btn btn-danger btn-xs" ng-click="cancelOffer(offer.$id)">Cancel my Offer (${{offer.total}})</button>
 										<img ng-src="{{offer.gravatar}}" alt="" class="img-circle offer gravatar">
 										<span>{{offer.name}}</span>
 									</div>
