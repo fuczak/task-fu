@@ -33,6 +33,9 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 				return Auth.createProfile(data.uid, user);
 			});
 		},
+    getProfile: function(uid) {
+      return $firebase(ref.child('profile').child(uid)).$asObject();
+    },
 		logout: function() {
 			auth.$unauth();
 		},

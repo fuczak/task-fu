@@ -79,6 +79,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Task,
 	$scope.acceptOffer = function (offerId, runnerId) {
 		Offer.acceptOffer($scope.selectedTask.$id, offerId, runnerId).then(function() {
 			toaster.pop('success', 'Offer is accepted.');
+			Offer.notifyRunner($scope.selectedTask.$id, runnerId);
 		});
 	};
 
