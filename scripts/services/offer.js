@@ -43,6 +43,8 @@ app.factory('Offer', function(FURL, $firebase, $q, Auth, Task) {
 			return o.$update({accepted: true}).then(function() {
 				var t = Task.getTask(taskId);
 				return t.$update({status: "assigned", runner: runnerId});
+			}).then(function() {
+				return Task.createUserTasks(taskId);
 			});
 		}
 	};
