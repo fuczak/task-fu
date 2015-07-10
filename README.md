@@ -1,4 +1,4 @@
 # task-fu
-Following a AngularJS + Firebase tutorial from Code4Startup
+AngularJS + Firebase Taskrabbit.com clone.
 
 Site live here: https://task-fu.firebaseapp.com/
